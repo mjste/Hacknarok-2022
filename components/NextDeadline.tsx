@@ -17,8 +17,8 @@ export interface Deadline {
 export const deadlineArray: Deadline[] = [
   { name: "Hacknarok: the end", date: tomorrow, cash: 9999999 },
   { name: "Północ", date: today, cash: 0 },
-  { name: "Frinder", date: today, cash: 3456789 },
-  { name: "foo", date: tomorrow, cash: 45678 },
+  { name: "Frinder", date: today, cash: 2137 },
+  { name: "foo", date: tomorrow, cash: 420 },
 ];
 
 export function compare(a: Deadline, b: Deadline) {
@@ -66,7 +66,9 @@ function MoneyAmount(props: MoneyAmountProps) {
   if (props.cash > 0) {
     return (
       <View>
-        <Text>Cash: {props.cash} hajsów</Text>
+        <Text style={styles.MoneyAmountStyle}>
+          Cash: {props.cash} cebulionów
+        </Text>
       </View>
     );
   } else {
@@ -88,5 +90,8 @@ const styles = StyleSheet.create({
   },
   DeadlineStyleText: {
     fontSize: 14,
+  },
+  MoneyAmountStyle: {
+    fontSize: 40,
   },
 });

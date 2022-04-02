@@ -1,7 +1,7 @@
-import { Text } from 'react-native'
+import { SafeAreaView, Text, StatusBar } from "react-native";
 
 const Resolutions = () => {
-	return <Text>Resolutions Screen</Text>
-}
+  return <Text>Resolutions Screen</Text>;
+};
 
-export default Resolutions
+export default Resolutions;
