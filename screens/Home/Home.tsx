@@ -1,7 +1,12 @@
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
+import { DaysGrid } from './DaysGrid'
 
 const Home = () => {
-	return <Text>Home Screen</Text>
+	return (
+		<View>
+			<DaysGrid />
+		</View>
+	)
 }
 
 export default Home
