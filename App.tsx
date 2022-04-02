@@ -1,20 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  FlatList,
+  SafeAreaView,
+  StyleSheet,
+  StatusBar,
+  Text,
+  View,
+  ListRenderItem,
+} from "react-native";
+import useColorScheme from "./ColorScheme";
+import { rowData, IRow } from "./Resolutions/data";
+import { Row } from "./Resolutions/Row";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+interface renderProps {
+  row: IRow;
 }
+
+const App = () => {
+  let colorScheme = useColorScheme();
+
+  const renderRow: ListRenderItem<IRow> = ({ item }) => (
+    <Row states={item.states} />
+  );
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={rowData}
+        renderItem={renderRow}
+        keyExtractor={(row) => row.id}
+        horizontal={false}
+      />
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#111111",
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: StatusBar.currentHeight || 0,
   },
 });
+
+export default App;
