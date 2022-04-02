@@ -1,10 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
-//@ts-ignore
-import photo1 from "./MockPhotos/indeks.jpg";
-//@ts-ignore
-import photo2 from "./MockPhotos/juliette.jpg";
+const photo1 = require('./MockPhotos/indeks.jpg')
+const photo2 = require('./MockPhotos/juliette.jpg')
 
 interface FeedElementProps{
     name: string
@@ -15,10 +13,12 @@ interface FeedElementProps{
   const FeedElement: React.FC<FeedElementProps> =({name, photo, TomatoesCounter, LikesCounter}) => {
     return (
         <View style={styles.feedElement}>
-        <Image style = {styles.photo} source={photo}/>
-        <Text style = {styles.text}>{name}</Text>
-        <Text style = {styles.text}>Zjadła chleb pierwszy raz od 3 dni *rzuć pomidorem*</Text>
-        <Text style = {styles.text}>👍:{TomatoesCounter} 🍅:{LikesCounter}</Text>
+            <Image style = {styles.photo} source={photo}/>
+            <View style={styles.text}>
+            <Text>{name}</Text>
+            <Text>Zjadła chleb pierwszy raz od 3 dni *rzuć pomidorem*</Text>
+            <Text>👍:{TomatoesCounter} 🍅:{LikesCounter}</Text>
+            </View>
         </View>
     );
 }
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   text:{
-    width: '100%',
+    flexGrow:1,
 
   },
   feedElement: {
