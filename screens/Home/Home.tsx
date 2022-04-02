@@ -1,11 +1,11 @@
-import { Text, View } from 'react-native'
+import { SafeAreaView, Text, View } from 'react-native'
 import { DaysGrid } from './DaysGrid'
 
 const Home = () => {
 	return (
-		<View>
+		<SafeAreaView>
 			<DaysGrid />
-		</View>
+		</SafeAreaView>
 	)
 }
 

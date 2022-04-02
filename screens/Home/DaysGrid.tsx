@@ -1,21 +1,26 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { Dimensions, StyleSheet, View } from 'react-native'
+import colors from '../../colors'
+
+const items = new Array(40).fill(0).map(() => {
+	const seed = Math.random()
+	return seed > 0.3 ? seed : 0.3
+})
 
 interface GridElementProps {
 	opacity: number
 }
 
 const GridElement: React.FC<GridElementProps> = ({ opacity }) => {
-	return <View style={[styles.square, { opacity }]}></View>
+	return (
+		<View style={styles.squareContainer}>
+			<View style={[styles.square, { opacity }]} />
+		</View>
+	)
 }
 
 export const DaysGrid = () => {
-	const numbers = []
-	for (let i = 0; i < 40; i++) {
-		numbers.push(i)
-	}
-
-	const listItems = numbers.map((number, i) => <GridElement key={i} opacity={0.03 * i + 0.1} />)
+	const listItems = items.map((x, i) => <GridElement key={i} opacity={x} />)
 
 	return (
 		<View style={styles.container}>
@@ -25,30 +30,24 @@ export const DaysGrid = () => {
 	)
 }
 
+const windowHeight = Dimensions.get('window').height
+const windowWidth = Dimensions.get('window').width
+
 const styles = StyleSheet.create({
 	container: {
+		padding: 20,
 		flexWrap: 'wrap',
 		flexDirection: 'row',
-		height: '30%',
-		width: '100%',
-		backgroundColor: '#fff',
-		alignItems: 'center',
 	},
-	text: {
-		width: 'auto',
-		textAlign: 'center',
-	},
-	grid: {
-		backgroundColor: '#000',
-		alignItems: 'center',
+	squareContainer: {
+		padding: 5,
+		width: (windowWidth - 40) / 7,
+		height: 25,
 	},
 	square: {
-		justifyContent: 'center',
-		alignContent: 'center',
-		width: '9%',
-		height: '24%',
+		width: '100%',
+		height: '100%',
 		borderRadius: 5,
-		backgroundColor: 'green',
-		margin: 1,
+		backgroundColor: colors.c1,
 	},
 })
