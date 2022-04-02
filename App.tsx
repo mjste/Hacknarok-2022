@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { Header } from "react-native/Libraries/NewAppScreen";
-import { NextDeadline } from "./NextDeadline";
+import { NextDeadline } from "./components/NextDeadline";
+import Deadlines from "./screens/Deadlines/Deadlines";
 
 export default function App() {
   const [count, setCount] = useState(0);
+  return <Deadlines />;
   return (
     <View style={styles.container}>
       <Text>Hello world {count}</Text>
