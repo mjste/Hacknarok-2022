@@ -2,8 +2,9 @@ import { FontAwesome, FontAwesome5 } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { Feather } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Entypo } from '@expo/vector-icons'
+import { useState } from 'react'
 
 export type ResoultionState = 'unchecked' | 'failed' | 'partial' | 'succes' | 'none'
 
@@ -38,52 +39,67 @@ export const ResolutionsHeader = () => {
 	)
 }
 
-export const ResolutionsDay: React.FC<IResolutionsDayProps> = ({ date, resolutions }) => {
-	const mapIcon = (state: ResoultionState) => {
-		if (state === 'failed') return <Feather name="x" size={24} color="black" />
-		if (state === 'succes') return <Feather name="check" size={24} color="black" />
-		if (state === 'partial') return <Entypo name="dot-single" size={24} color="black" />
-		if (state === 'unchecked') return <Feather name="minus" size={24} color="black" />
-		if (state === 'none') return null
+function Resolution({ state }: { state: ResoultionState }) {
+	const [innerState, setInnerState] = useState(state)
+
+	const onPress = () => {
+		if (innerState === 'failed') return setInnerState('succes')
+		if (innerState === 'succes') return setInnerState('partial')
+		if (innerState === 'partial') return setInnerState('unchecked')
+		if (innerState === 'unchecked') return setInnerState('failed')
 	}
 
+	const mapIcon = (innerState: ResoultionState) => {
+		if (innerState === 'failed') return <Feather name="x" size={24} color="black" />
+		if (innerState === 'succes') return <Feather name="check" size={24} color="black" />
+		if (innerState === 'partial') return <Entypo name="dot-single" size={24} color="black" />
+		if (innerState === 'unchecked') return <Feather name="minus" size={24} color="black" />
+		if (innerState === 'none') return null
+	}
+
+	let borderColor = '#eee3'
+	let color = '#eee'
+	switch (innerState) {
+		case 'unchecked':
+			borderColor = '#42424222'
+			color = '#424242'
+			break
+		case 'failed':
+			borderColor = '#fc030322'
+			color = '#fc0303'
+			break
+		case 'succes':
+			borderColor = '#13fc0322'
+			color = '#13fc03'
+			break
+		case 'partial':
+			borderColor = '#ffe70d22'
+			color = '#ffe70d'
+			break
+		// case 'partial':
+		// 	borderColor = '#00648c22'
+		// 	color = '#00648c'
+		// 	break
+	}
+
+	return (
+		<View style={[styles.tergetCont, { borderColor: color, backgroundColor: borderColor }]}>
+			<TouchableOpacity onPress={onPress}>
+				<Text>{mapIcon(innerState)}</Text>
+			</TouchableOpacity>
+		</View>
+	)
+}
+
+export const ResolutionsDay: React.FC<IResolutionsDayProps> = ({ date, resolutions }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.dateCont}>
 				<Text style={styles.date}>{date}</Text>
 			</View>
-			{resolutions.map((x, i) => {
-				let borderColor = '#eee3'
-				let color = '#eee'
-				switch (x) {
-					case 'unchecked':
-						borderColor = '#42424222'
-						color = '#424242'
-						break
-					case 'failed':
-						borderColor = '#fc030322'
-						color = '#fc0303'
-						break
-					case 'succes':
-						borderColor = '#13fc0322'
-						color = '#13fc03'
-						break
-					case 'partial':
-						borderColor = '#ffe70d22'
-						color = '#ffe70d'
-						break
-					case 'partial':
-						borderColor = '#00648c22'
-						color = '#00648c'
-						break
-				}
-
-				return (
-					<View style={[styles.tergetCont, { borderColor: color, backgroundColor: borderColor }]} key={i}>
-						<Text>{mapIcon(x)}</Text>
-					</View>
-				)
-			})}
+			{resolutions.map((x, i) => (
+				<Resolution state={x} key={i} />
+			))}
 		</View>
 	)
 }
