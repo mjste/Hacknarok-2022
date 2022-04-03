@@ -9,35 +9,34 @@ import {
 import { FAB } from "react-native-elements";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "../../components/SafeAreaView";
+import colors from "../../colors";
 
 function Deadlines() {
   let prevDate = 0;
   return (
     <SafeAreaView>
-      <View style={[styles.DeadlinesStyle]}>
-        <StatusBar style="auto" />
-        <View style={styles.DeadlinesListStyle}>
-          {deadlineArray.sort(compare).map((item, index) => {
-            if (item.date.getDate() != prevDate) {
-              prevDate = item.date.getDate();
-              return [
-                <DayHeader date={item.date} key={2 * index} />,
-                <NextDeadline index={index} key={2 * index + 1} />,
-              ];
-            }
-            return <NextDeadline index={index} key={2 * index} />;
-          })}
-        </View>
-        <FAB
-          title={"Create"}
-          placement={"right"}
-          onPress={() => {
-            if (Platform.OS == "android") {
-              ToastAndroid.show("General Kenobi", ToastAndroid.SHORT);
-            }
-          }}
-        />
+      <View style={styles.DeadlinesListStyle}>
+        {deadlineArray.sort(compare).map((item, index) => {
+          if (item.date.getDate() != prevDate) {
+            prevDate = item.date.getDate();
+            return [
+              <DayHeader date={item.date} key={2 * index} />,
+              <NextDeadline index={index} key={2 * index + 1} />,
+            ];
+          }
+          return <NextDeadline index={index} key={2 * index} />;
+        })}
       </View>
+
+      <FAB
+        title={"Create"}
+        placement={"right"}
+        onPress={() => {
+          if (Platform.OS == "android") {
+            ToastAndroid.show("General Kenobi", ToastAndroid.SHORT);
+          }
+        }}
+      />
     </SafeAreaView>
   );
 }
@@ -51,11 +50,12 @@ const styles = StyleSheet.create({
   },
   DeadlinesListStyle: {
     width: "100%",
-    height: "30%",
+    height: "100%",
+    backgroundColor: colors.Surface,
   },
   DayHeaderStyle: {
     fontSize: 24,
-    backgroundColor: "cyan",
+    backgroundColor: colors.Secondary,
     padding: 5,
     margin: 5,
     borderRadius: 10,

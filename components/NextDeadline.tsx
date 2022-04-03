@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
+import colors from "../colors";
 
 const today = new Date();
 today.setHours(23, 59, 59, 999);
@@ -79,7 +80,7 @@ function MoneyAmount(props: MoneyAmountProps) {
 const styles = StyleSheet.create({
   DeadlineStyleHeader: {
     fontSize: 24,
-    backgroundColor: "#d10202",
+    backgroundColor: colors.Primary,
     borderRadius: 10,
     padding: 5,
     color: "white",
