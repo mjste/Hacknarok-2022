@@ -6,7 +6,7 @@ const photo1 = require("./indeks.jpg");
 const photo2 = require("./juliette.jpg");
 const photos = [
   require("./hiszpanka2.jpg"),
-  require("./hiszpanka3.jpg"),
+  require("./Oktawian.jpg"),
   require("./hiszpanka4.jpg"),
   require("./juliette.jpg"),
   require("./szwedka1.jpg"),
@@ -15,7 +15,7 @@ const photos = [
 ];
 const names = [
   "Feliciana Devera",
-  "Jacinta Torrico",
+  "Oktawian August",
   "Adelina Santos",
   "Juliette B",
   "Ida Skoglund",
