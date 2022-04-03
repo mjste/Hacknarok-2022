@@ -10,6 +10,8 @@ import {
 import { rowData, IRow, headerData, IHeader } from "./data";
 import { Row } from "./Row";
 import { Header } from "./Header";
+import { WeeklySummary } from "./WeeklySummary";
+import React from "react";
 interface renderProps {
   row: IRow;
 }
@@ -29,6 +31,12 @@ const Resolutions = () => {
         keyExtractor={(row) => row.id}
         horizontal={false}
         // initialScrollIndex={rowData.length - 1}
+      />
+      <WeeklySummary
+        daysLeft={5}
+        currentPercentage={34}
+        goalPercentage={80}
+        stakes={37}
       />
     </SafeAreaView>
   );
