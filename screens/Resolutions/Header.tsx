@@ -13,10 +13,13 @@ import colors from "../../colors";
 
 interface HeaderProps {
   names: string[];
+  icons: JSX.Element[];
 }
 
-export const Header: React.FC<HeaderProps> = ({ names }) => {
-  const nameTexts = names.map((name, i) => <ResIcon state={name} key={i} />);
+export const Header: React.FC<HeaderProps> = ({ names, icons }) => {
+  const nameTexts = names.map((name, i) => (
+    <ResIcon state={name} key={i} icon={icons[i]} />
+  ));
   const width = "10%";
   return (
     <View style={[styles.row]}>

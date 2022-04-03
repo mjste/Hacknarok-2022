@@ -10,10 +10,11 @@ import { State } from "./data";
 
 interface ItemProps {
   state: string;
+  icon: JSX.Element;
 }
 
-export const ResIcon: React.FC<ItemProps> = ({ state }) => {
-  return <View style={styles.item}></View>;
+export const ResIcon: React.FC<ItemProps> = ({ state, icon }) => {
+  return <View style={styles.item}>{icon}</View>;
 };
 
 const styles = StyleSheet.create({
@@ -24,7 +25,9 @@ const styles = StyleSheet.create({
     // marginVertical: "5%",
     marginHorizontal: "2%",
     flexGrow: 1,
-    flexShrink: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    // alignItems
   },
   title: {
     fontSize: 32,

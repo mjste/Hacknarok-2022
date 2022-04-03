@@ -1,14 +1,28 @@
+import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+// import { FontAwesome } from "@expo/vector-icons";
+
 export type State = "unchecked" | "failed" | "succes" | "partial" | "excused";
 
 export interface IHeader {
   id: string;
   names: string[];
+  icons: JSX.Element[];
 }
 
 export const headerData: IHeader = {
   id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
   // names: ["failed", "succes", "unchecked", "partial", "excused"],
   names: ["Tick", "Work", "Siup", "asd", "TAS"],
+  icons: [
+    <Feather name="check-square" size={40} color="black" />,
+    <FontAwesome5 name="running" size={40} color="black" />,
+    <MaterialCommunityIcons name="cigar-off" size={40} color="black" />,
+    <FontAwesome name="sun-o" size={40} color="black" />,
+    <Ionicons name="barbell-outline" size={40} color="black" />,
+  ],
 };
 
 export interface IRow {

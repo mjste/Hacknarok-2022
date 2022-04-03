@@ -24,7 +24,7 @@ const Resolutions = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header names={headerData.names}></Header>
+      <Header names={headerData.names} icons={headerData.icons}></Header>
       <FlatList
         inverted
         data={[...rowData].reverse()}
