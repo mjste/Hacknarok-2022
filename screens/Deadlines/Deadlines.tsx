@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, View, Text, ToastAndroid, Platform } from "react-native";
+import {
+  StyleSheet,
+  ToastAndroid,
+  Platform,
+  FlatList,
+  ScrollView,
+} from "react-native";
 import {
   deadlineArray,
   IDeadline,
@@ -11,45 +17,18 @@ import { SafeAreaView } from "../../components/SafeAreaView";
 import colors from "../../colors";
 import { Day, byDay } from "./Day";
 
-// function Deadlines() {
-//   let prevDate = 0;
-//   return (
-//     <SafeAreaView>
-//       <View style={styles.DeadlinesListStyle}>
-//         {deadlineArray.sort(compare).map((item, index) => {
-//           if (item.date.getDate() != prevDate) {
-//             prevDate = item.date.getDate();
-//             return [
-//               <DayHeader date={item.date} key={2 * index} />,
-//               <Deadline index={index} key={2 * index + 1} />,
-//             ];
-//           }
-//           return <Deadline index={index} key={2 * index} />;
-//         })}
-//       </View>
-
-//       <FAB
-//         title={"Create"}
-//         placement={"right"}
-//         onPress={() => {
-//           if (Platform.OS == "android") {
-//             ToastAndroid.show("General Kenobi", ToastAndroid.SHORT);
-//           }
-//         }}
-//       />
-//     </SafeAreaView>
-//   );
-// }
-
 function Deadlines() {
   return (
     <SafeAreaView>
-      {byDay.map((x, i) => {
-        const [index, values] = x;
-        return (
-          <Day key={i} index={Number(index)} values={values as IDeadline[]} />
-        );
-      })}
+      <ScrollView>
+        {byDay.map((x, i) => {
+          const [index, values] = x;
+          return (
+            <Day key={i} index={Number(index)} values={values as IDeadline[]} />
+          );
+        })}
+      </ScrollView>
+
       <FAB
         title={"Create"}
         placement={"right"}

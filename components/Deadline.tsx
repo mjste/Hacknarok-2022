@@ -77,20 +77,20 @@ function MoneyAmount(props: MoneyAmountProps) {
 
 const styles = StyleSheet.create({
   DeadlineStyleHeader: {
-    fontSize: 24,
-    backgroundColor: colors.Primary,
+    fontSize: 20,
+    backgroundColor: colors.Secondary,
     borderRadius: 10,
     padding: 5,
-    color: colors.OnBackground,
+    color: colors.OnSecondary,
   },
   DeadlineStyleBox: {
     padding: 3,
     margin: 3,
   },
   DeadlineStyleText: {
-    fontSize: 14,
+    fontSize: 18,
   },
   MoneyAmountStyle: {
-    fontSize: 40,
+    fontSize: 18,
   },
 });

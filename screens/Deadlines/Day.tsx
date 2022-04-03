@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet, ViewStyle } from "react-native";
 import {
   compareDeadlines,
   Deadline,
@@ -7,6 +7,8 @@ import {
   IDeadline,
 } from "../../components/Deadline";
 import * as R from "ramda";
+import { color } from "react-native-elements/dist/helpers";
+import colors from "../../colors";
 
 interface IDay {
   index: number;
@@ -30,9 +32,10 @@ export const byDay = R.pipe(
 )(deadlineArray);
 
 export function Day(props: IDay) {
+  console.log(props.values[0].date);
   return (
-    <View>
-      <DayHeader day={props.values[0].date.toString()} />
+    <View style={styles.DayStyle}>
+      <DayHeader date={props.values[0].date} />
       {props.values.map((value, i) => (
         <Deadline {...value} />
       ))}
@@ -40,6 +43,33 @@ export function Day(props: IDay) {
   );
 }
 
-function DayHeader(props: { day: string }) {
-  return <Text>{props.day}</Text>;
+function DayHeader(props: { date: Date }) {
+  return (
+    <View style={styles.DayHeaderStyle}>
+      <Text style={styles.DayHeaderTextStyle}>
+        Day: {props.date.getDate()}.{props.date.getMonth()}.
+        {props.date.getFullYear()}
+      </Text>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  DayStyle: {
+    backgroundColor: colors.Surface,
+    padding: 3,
+    margin: 3,
+    elevation: 5,
+  },
+  DayHeaderStyle: {
+    backgroundColor: colors.Primary,
+    padding: 5,
+    margin: 3,
+    borderRadius: 10,
+    color: colors.OnPrimary,
+  },
+  DayHeaderTextStyle: {
+    color: colors.OnPrimary,
+    fontSize: 24,
+  },
+});
