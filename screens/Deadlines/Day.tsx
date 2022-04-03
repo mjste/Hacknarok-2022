@@ -34,7 +34,7 @@ export function Day(props: IDay) {
     <View>
       <DayHeader day={props.values[0].date.toString()} />
       {props.values.map((value, i) => (
-        <Deadline {...value} />
+        <Deadline {...value} key={i} />
       ))}
     </View>
   );

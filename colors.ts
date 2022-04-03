@@ -3,6 +3,7 @@ export default {
 	PrimaryOpaque: '#6200ee55',
 	PrimaryVariant: '#3700b3',
 	Secondary: '#03DAC6',
+	SecondaryOpaque: '#03DAC655',
 	SecondaryVariant: '#018786',
 	Background: '#FFFFFF',
 	Surface: '#ededed',
