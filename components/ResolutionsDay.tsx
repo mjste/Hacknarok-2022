@@ -52,11 +52,38 @@ export const ResolutionsDay: React.FC<IResolutionsDayProps> = ({ date, resolutio
 			<View style={styles.dateCont}>
 				<Text style={styles.date}>{date}</Text>
 			</View>
-			{resolutions.map((x, i) => (
-				<View style={styles.tergetCont} key={i}>
-					<Text>{mapIcon(x)}</Text>
-				</View>
-			))}
+			{resolutions.map((x, i) => {
+				let borderColor = '#eee3'
+				let color = '#eee'
+				switch (x) {
+					case 'unchecked':
+						borderColor = '#42424222'
+						color = '#424242'
+						break
+					case 'failed':
+						borderColor = '#fc030322'
+						color = '#fc0303'
+						break
+					case 'succes':
+						borderColor = '#13fc0322'
+						color = '#13fc03'
+						break
+					case 'partial':
+						borderColor = '#ffe70d22'
+						color = '#ffe70d'
+						break
+					case 'partial':
+						borderColor = '#00648c22'
+						color = '#00648c'
+						break
+				}
+
+				return (
+					<View style={[styles.tergetCont, { borderColor: color, backgroundColor: borderColor }]} key={i}>
+						<Text>{mapIcon(x)}</Text>
+					</View>
+				)
+			})}
 		</View>
 	)
 }
