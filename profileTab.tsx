@@ -5,9 +5,9 @@ import { OrgInfo } from './OrgInfo';
 const photo1 = require('./MockPhotos/mike.jpg')
 const photos = [require('./screens/Home/hiszpanka2.jpg'),
 require('./screens/Home/hiszpanka3.jpg'), require('./screens/Home/hiszpanka4.jpg'), require('./MockPhotos/juliette.jpg'),
-require('./screens/Home/ah64.jpg'), require('./screens/Home/cezar.png')]
+require('./screens/Home/ah64.jpg'), require('./screens/Home/cezar.png'), require('./screens/Home/racoon.jpg')]
 
-const names = ['Feliciana Devera', 'Jacinta Torrico', 'Adelina Santos', 'Juliette B', 'AH-64 Apache', 'Julius Caesar']
+const names = ['Feliciana Devera', 'Jacinta Torrico', 'Adelina Santos', 'Juliette B', 'AH-64 Apache', 'Julius Caesar', 'Your Neighbour Racoon']
 
 export const FeedList = () =>{
   const numbers = [];
