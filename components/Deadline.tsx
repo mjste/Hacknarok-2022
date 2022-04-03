@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import colors from "../colors";
+import { FinishDeadlineButton } from "./FinishDeadlineButton";
 
 const yesterday = new Date();
 yesterday.setHours(23, 59, 59, 999);
@@ -16,10 +17,10 @@ export interface IDeadline {
 }
 
 export const deadlineArray: IDeadline[] = [
-  { name: "Hacknarok: the end", date: today, cash: 9999999 },
+  { name: "Hacknarok: the end", date: today, cash: 10 },
   { name: "Północ", date: yesterday, cash: 0 },
-  { name: "Frinder", date: yesterday, cash: 2137 },
-  { name: "foo", date: today, cash: 420 },
+  { name: "Frinder", date: yesterday, cash: 12 },
+  { name: "foo", date: today, cash: 30 },
 ];
 
 export function compareDeadlines(a: IDeadline, b: IDeadline) {
@@ -53,6 +54,7 @@ export function Deadline(props: IDeadline) {
         Time left: {daysLeft} days {hoursLeft}h {minutesLeft}m{" "}
       </Text>
       <MoneyAmount cash={props.cash} />
+      <FinishDeadlineButton />
     </View>
   );
 }
@@ -65,9 +67,7 @@ function MoneyAmount(props: MoneyAmountProps) {
   if (props.cash > 0) {
     return (
       <View>
-        <Text style={styles.MoneyAmountStyle}>
-          Cash: {props.cash} cebulionów
-        </Text>
+        <Text style={styles.MoneyAmountStyle}>Cash: {props.cash} zł</Text>
       </View>
     );
   } else {

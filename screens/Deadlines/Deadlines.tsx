@@ -34,7 +34,7 @@ function Deadlines() {
         placement={"right"}
         onPress={() => {
           if (Platform.OS == "android") {
-            ToastAndroid.show("General Kenobi", ToastAndroid.SHORT);
+            ToastAndroid.show("Hello there", ToastAndroid.SHORT);
           }
         }}
       />
