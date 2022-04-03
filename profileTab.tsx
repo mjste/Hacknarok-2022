@@ -11,7 +11,7 @@ const names = ['Feliciana Devera', 'Jacinta Torrico', 'Adelina Santos', 'Juliett
 
 export const FeedList = () =>{
   const numbers = [];
-  for (let i=0;i<6;i++){
+  for (let i=0;i<8;i++){
     numbers.push(i);
   }
   const listItems = numbers.map((number,i) =>  
@@ -67,7 +67,7 @@ const FeedElement: React.FC<FeedElementProps> =({name, photo}) => {
 const styles = StyleSheet.create({
   scrollScreen:{
     width: '100%',
-    height: '50%'
+    height: '30%'
   },
   boldText:{
     fontWeight: "bold",
