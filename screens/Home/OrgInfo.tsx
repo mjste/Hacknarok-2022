@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.Primary,
 		width: '100%',
 		flexDirection: 'row',
-		alignItems: 'center',
+		alignItems: 'flex-end',
 	},
 	labelText: {
 		color: 'white',
@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
 		color: 'white',
 		flexWrap: 'wrap',
 		flex: 1,
-		paddingHorizontal: 30,
+		paddingHorizontal: 20,
+		paddingBottom: 20,
 	},
 	boldText: {
 		color: 'white',
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
 	},
 	photo: {
 		alignContent: 'flex-end',
-		width: '30%',
+		width: '40%',
 		aspectRatio: 1,
 	},
 })
