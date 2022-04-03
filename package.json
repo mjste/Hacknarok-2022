@@ -10,6 +10,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.1",
@@ -20,6 +22,8 @@
     "react-floating-action-button": "^1.0.5",
     "react-native": "0.64.3",
     "react-native-elements": "^3.4.2",
+    "react-native-svg": "^12.3.0",
+    "react-native-vector-icons": "^9.1.0",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
