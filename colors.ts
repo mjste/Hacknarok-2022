@@ -5,7 +5,7 @@ export default {
 	Secondary: '#03DAC6',
 	SecondaryVariant: '#018786',
 	Background: '#FFFFFF',
-	Surface: '#FFFFFF',
+	Surface: '#ededed',
 	Error: '#B00020',
 	OnPrimary: '#FFFFFF',
 	OnSecondary: '#000000',

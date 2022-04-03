@@ -9,20 +9,20 @@ const tomorrow = new Date(today);
 tomorrow.setDate(tomorrow.getDate() + 1);
 tomorrow.setHours(12, 0, 0, 0);
 
-export interface Deadline {
+export interface IDeadline {
   name: string;
   date: Date;
   cash: number;
 }
 
-export const deadlineArray: Deadline[] = [
+export const deadlineArray: IDeadline[] = [
   { name: "Hacknarok: the end", date: tomorrow, cash: 9999999 },
   { name: "Północ", date: today, cash: 0 },
   { name: "Frinder", date: today, cash: 2137 },
   { name: "foo", date: tomorrow, cash: 420 },
 ];
 
-export function compare(a: Deadline, b: Deadline) {
+export function compare(a: IDeadline, b: IDeadline) {
   if (a.date < b.date) {
     return -1;
   } else if (a.date > b.date) {
@@ -31,11 +31,11 @@ export function compare(a: Deadline, b: Deadline) {
   return 0;
 }
 
-interface NextDeadlineProps {
+interface DeadlineProps {
   index: number;
 }
 
-export function NextDeadline(props: NextDeadlineProps) {
+export function Deadline(props: DeadlineProps) {
   deadlineArray.sort(compare);
   let secondsLeft = Math.floor(
     (deadlineArray[props.index].date.getTime() - new Date().getTime()) / 1000

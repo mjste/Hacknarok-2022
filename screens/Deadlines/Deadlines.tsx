@@ -2,10 +2,10 @@ import React from "react";
 import { StyleSheet, View, Text, ToastAndroid, Platform } from "react-native";
 import {
   deadlineArray,
-  NextDeadline,
+  IDeadline,
   Deadline,
   compare,
-} from "../../components/NextDeadline";
+} from "../../components/Deadline";
 import { FAB } from "react-native-elements";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "../../components/SafeAreaView";
@@ -21,10 +21,10 @@ function Deadlines() {
             prevDate = item.date.getDate();
             return [
               <DayHeader date={item.date} key={2 * index} />,
-              <NextDeadline index={index} key={2 * index + 1} />,
+              <Deadline index={index} key={2 * index + 1} />,
             ];
           }
-          return <NextDeadline index={index} key={2 * index} />;
+          return <Deadline index={index} key={2 * index} />;
         })}
       </View>
 
