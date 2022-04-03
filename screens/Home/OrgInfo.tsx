@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 		overflow: 'hidden',
 		borderBottomLeftRadius: 20,
 		borderBottomRightRadius: 20,
-		elevation: 10,
+		elevation: 20,
 		backgroundColor: colors.Primary,
 		width: '100%',
 		flexDirection: 'row',
