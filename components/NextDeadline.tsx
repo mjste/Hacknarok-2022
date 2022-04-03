@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.Primary,
     borderRadius: 10,
     padding: 5,
-    color: "white",
+    color: colors.OnBackground,
   },
   DeadlineStyleBox: {
     padding: 3,

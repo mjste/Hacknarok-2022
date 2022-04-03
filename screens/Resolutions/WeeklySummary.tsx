@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import colors from "../../colors";
 
 interface IWeelySummary {
   daysLeft: number;
@@ -36,20 +37,20 @@ export const WeeklySummary: React.FC<IWeelySummary> = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#111111",
+    backgroundColor: colors.Background,
     // backgroundColor: "red",
     // flex: 1,
     // marginTop: 100,
     zIndex: 2,
     paddingHorizontal: 4,
     paddingVertical: 5,
-    color: "white",
+    color: colors.OnBackground,
     justifyContent: "center",
     // bottom: 40,
   },
   title: {
     // padding: ,
-    color: "white",
+    color: colors.OnBackground,
     fontSize: 25,
     flexGrow: 1,
     // alignItems: "center",

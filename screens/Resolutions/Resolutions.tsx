@@ -12,6 +12,7 @@ import { Row } from "./Row";
 import { Header } from "./Header";
 import { WeeklySummary } from "./WeeklySummary";
 import React from "react";
+import colors from "../../colors";
 interface renderProps {
   row: IRow;
 }
@@ -44,7 +45,7 @@ const Resolutions = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#111111",
+    backgroundColor: colors.Background,
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
   },

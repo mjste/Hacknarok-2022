@@ -9,6 +9,7 @@ import {
 import { Item } from "./Item";
 import { State } from "./data";
 import { ResIcon } from "./ResIcon";
+import colors from "../../colors";
 
 interface HeaderProps {
   names: string[];
@@ -27,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ names }) => {
 
 const styles = StyleSheet.create({
   row: {
-    backgroundColor: "#000000",
+    backgroundColor: colors.Surface,
     padding: "1.5%",
     marginVertical: "0.5%",
     marginHorizontal: 0,
@@ -35,6 +36,6 @@ const styles = StyleSheet.create({
   },
   states: {
     fontSize: 32,
-    color: "white",
+    color: colors.OnSurface,
   },
 });
