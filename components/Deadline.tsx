@@ -2,12 +2,12 @@ import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import colors from "../colors";
 
-const today = new Date();
-today.setHours(23, 59, 59, 999);
+const yesterday = new Date();
+yesterday.setHours(23, 59, 59, 999);
 
-const tomorrow = new Date(today);
-tomorrow.setDate(tomorrow.getDate() + 1);
-tomorrow.setHours(12, 0, 0, 0);
+const today = new Date(yesterday);
+today.setDate(today.getDate() + 1);
+today.setHours(12, 0, 0, 0);
 
 export interface IDeadline {
   name: string;
@@ -16,13 +16,13 @@ export interface IDeadline {
 }
 
 export const deadlineArray: IDeadline[] = [
-  { name: "Hacknarok: the end", date: tomorrow, cash: 9999999 },
-  { name: "Północ", date: today, cash: 0 },
-  { name: "Frinder", date: today, cash: 2137 },
-  { name: "foo", date: tomorrow, cash: 420 },
+  { name: "Hacknarok: the end", date: today, cash: 9999999 },
+  { name: "Północ", date: yesterday, cash: 0 },
+  { name: "Frinder", date: yesterday, cash: 2137 },
+  { name: "foo", date: today, cash: 420 },
 ];
 
-export function compare(a: IDeadline, b: IDeadline) {
+export function compareDeadlines(a: IDeadline, b: IDeadline) {
   if (a.date < b.date) {
     return -1;
   } else if (a.date > b.date) {
@@ -35,10 +35,10 @@ interface DeadlineProps {
   index: number;
 }
 
-export function Deadline(props: DeadlineProps) {
-  deadlineArray.sort(compare);
+export function Deadline(props: IDeadline) {
+  deadlineArray.sort(compareDeadlines);
   let secondsLeft = Math.floor(
-    (deadlineArray[props.index].date.getTime() - new Date().getTime()) / 1000
+    (props.date.getTime() - new Date().getTime()) / 1000
   );
   let minutesLeft = Math.floor(secondsLeft / 60);
   let hoursLeft = Math.floor(minutesLeft / 60);
@@ -48,13 +48,11 @@ export function Deadline(props: DeadlineProps) {
 
   return (
     <View style={styles.DeadlineStyleBox}>
-      <Text style={styles.DeadlineStyleHeader}>
-        {deadlineArray[props.index].name}
-      </Text>
+      <Text style={styles.DeadlineStyleHeader}>{props.name}</Text>
       <Text style={styles.DeadlineStyleText}>
         Time left: {daysLeft} days {hoursLeft}h {minutesLeft}m{" "}
       </Text>
-      <MoneyAmount cash={deadlineArray[props.index].cash} />
+      <MoneyAmount cash={props.cash} />
     </View>
   );
 }
